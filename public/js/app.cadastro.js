@@ -16,7 +16,7 @@ function setFotoParaUpload(e) {
 function concluirCadastro() {
     firebase.database().ref('usuarios/' + getUid('uid', window.location.href)).update({
         nome: nome.value,
-        telefone: telefone.value
+        telefone: telefone.value,
         celular: celular.value
     }).then(function(result) {
         alerta.innerHTML = 'Cadastro concluido';
