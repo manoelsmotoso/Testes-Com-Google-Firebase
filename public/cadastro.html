@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-login">
+            <div class="fieldset">
+                <label class="text-center block">Dados Pessoais</label>
+                <div><span class="block  alert" id="alerta"></span></div>
+                <div>
+                    <label class="label block">NOME</label>
+                    <input type="text" id="nome" class="input block text-center" placeholder="Nome Sobrenome" autofocus/>
+                </div>
+                <div>
+                    <label class="label block">TELEFONE</label>
+                    <input type="fone" id="telefone" class="input block text-center" placeholder="(00)0000-0000" />
+                </div>
+                <div>
+                    <label class="label block ">CELULAR</label>
+                    <input type="fone" id="celular" class="input block text-center" placeholder="(00)0000-0000" />
+                </div>
+                <div>
+                    <label class="label">FOTO DO PERFIL</label>
+                    <input type="file" id="file">
+                </div>
+                <div>
+                    <span id="progressInfo"></span>
+                    <progress class="block" id="progress" value="0" max="100"></progress>
+                </div>
+                <div class="btn-login">
+                    <button onclick="concluirCadastro()" class="btn block">Enviar</button>
+                </div>
+                <div class="text-center">
+                    <img class="img" src="" id="imgGravada">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/app.upload.js"></script>
+    <script type="text/javascript" src="js/app.cadastro.js"></script>
+</body>
+
+</html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+</body>
+
+</html>

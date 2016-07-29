@@ -1,0 +1,107 @@
+    .alert {
+        background-color: #82E984;
+        text-align: center;
+        border-radius: 4px;
+        border: solid 0.2 #82E984;
+    }
+    
+    body {
+        background-color: #E0F4E6;
+        font-weight: bold;
+    }
+    
+    .fieldset {
+        background-color: #FFFFFF;
+        border-radius: 6px;
+        border: 0.1px;
+        padding: 15px;
+    }
+    
+    .input,
+    .btn {
+        border-radius: 4px;
+        border: 0.8px solid #D3F1D5;
+    }
+    
+    .input {
+        font-size: 1em;
+    }
+    
+    .input:active,
+    .input:focus {
+        font-size: 1.3em;
+        box-shadow: inset 0px 0px 0.5px #1C78CE;
+    }
+    
+    input:active {
+        border: solid 1px #00C2D9 box-shadow: 5px 5px 5px #39EAFA;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .btn-login {
+        margin-top: 10px;
+    }
+    
+    .block {
+        display: block;
+        width: 100%;
+    }
+    
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .form-login {
+        margin-top: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 450px;
+    }
+    
+    .btn,
+    .input {
+        height: 40px;
+    }
+    
+    .text-center {
+        text-align: center;
+    }
+    
+    .btn-facebook {
+        background-color: #3248E8;
+        border-color: #102BEF
+    }
+    
+    .btn-facebook:active {
+        background-color: #5474EC
+    }
+    
+    .btn-google {
+        background-color: #E91E00;
+        border-color: #D82600
+    }
+    
+    .btn-google:active {
+        background-color: #FF6043
+    }
+    
+    .btn-facebook,
+    .btn-google {
+        color: #FFFFFF;
+        padding: 5px;
+    }
+    
+    .img {
+    	max-width: 200px;
+    	max-height: 200px;
+    	text-align: center;
+    	border:0.5px;
+    	border-radius: 5px;
+    }
