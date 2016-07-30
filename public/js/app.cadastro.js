@@ -1,12 +1,13 @@
 if (sessionStorage.getItem('uid') == null || sessionStorage.getItem('uid') == '') {
-     window.location.replace('/index.html');
- }
+    window.location.replace('/index.html');
+}
 
 if (firebase.auth().currentUser == null) {
     login(sessionStorage.getItem('email'), sessionStorage.getItem('senha'));
 } else {
     getDadosDeUsuario(firebase.auth().currentUser);
 }
+
 
 function login(emailAuth, senhaAuth) {
     firebase.auth().signInWithEmailAndPassword(emailAuth, senhaAuth)
@@ -19,6 +20,7 @@ function login(emailAuth, senhaAuth) {
             nome.value = result.displayName;
             imgGravada.src = result.photoURL;
             sessionStorage.setItem('isAutenticado', true);
+            getDadosDeUsuario(result);
 
         })
         .catch(function(error) {
@@ -26,23 +28,28 @@ function login(emailAuth, senhaAuth) {
             alerta.innerHTML = error.message;
             console.log("Flaha no login! Codigo:", error.code);
             console.log("Detalhes: ", error.message);
-            sessionStorage.setItem('isAutenticado', false); 
+            sessionStorage.setItem('isAutenticado', false);
             // ...
         });
 }
 
 function getDadosDeUsuario(user) {
     if (user != null) {
-        console.log(user);
         nome.value = user.displayName;
         email.value = user.email;
         imgGravada.src = user.photoURL;
+        firebase.database().ref('/usuarios/' + user.uid).once('value').then(function(snapshot) {
+            console.log(snapshot.val());
+            celular.value = snapshot.val().celular;
+            telefone.value = snapshot.val().telefone;
+            // ...
+        });
     }
 }
 
 function atualizarDadosDeUsuario() {
     var user = firebase.auth().currentUser;
-    
+
     user.updateProfile({
         displayName: nome.value,
         photoURL: imgGravada.src
@@ -53,10 +60,9 @@ function atualizarDadosDeUsuario() {
     }, function(error) {
         // An error happened.
         alerta.innerHTML = "Erro ao atualizar dados.";
-        console.log("Erro ao atualizar dado do usuario: "+error);
+        console.log("Erro ao atualizar dado do usuario: " + error);
     });
 }
-
 
 
 
