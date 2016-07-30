@@ -2,30 +2,38 @@
         background-color: #82E984;
         text-align: center;
         border-radius: 4px;
-        border: solid 0.2 #82E984;
+        border: solid 0.2 #081DE5;
     }
     
     body {
-        background-color: #E0F4E6;
+        background-color: #FBFBF7;
         font-weight: bold;
     }
     
     .fieldset {
-        background-color: #FFFFFF;
+        background-color: #CCFBFB;
         border-radius: 6px;
         border: 0.1px;
         padding: 15px;
     }
+	.col-md-6{
+	  max-width:450px;
+	}
     
     .input,
     .btn {
         border-radius: 4px;
-        border: 0.8px solid #D3F1D5;
+        border: 0.8px;
     }
     
     .input {
-        font-size: 1em;
+        font-size: 1.2em;
     }
+	.input-file{
+	  border-bottom-style:inset;
+	  border:0.5px;
+	  background-color:#F5A8A3;
+	}
     
     .input:active,
     .input:focus {
@@ -65,43 +73,69 @@
         max-width: 450px;
     }
     
-    .btn,
-    .input {
-        height: 40px;
-    }
-    
     .text-center {
         text-align: center;
     }
+	.text-left{
+	    text-align:left;
+	}
+	.text-rigth{
+	  text-align:right;
+	}
     
-    .btn-facebook {
+	.btn,
+    .input {
+        height: 40px;
+    }
+    .btn-primary {
         background-color: #3248E8;
         border-color: #102BEF
     }
     
-    .btn-facebook:active {
+    .btn-primary:active {
         background-color: #5474EC
     }
     
-    .btn-google {
+    .btn-danger {
         background-color: #E91E00;
         border-color: #D82600
     }
     
-    .btn-google:active {
+    .btn-danger:active {
         background-color: #FF6043
     }
-    
-    .btn-facebook,
-    .btn-google {
+	.btn-info{
+	  background-color:#8ABFF1;
+	  border-color:#67B3FF
+	}
+    .btn-info:active{
+	  background-color:#B6D1EC;
+	  border-color:#569BE0
+	}
+    .btn-primary,
+    .btn-danger,
+	.btn-info{
         color: #FFFFFF;
-        padding: 5px;
+        padding: 3px;
     }
     
     .img {
-    	max-width: 200px;
-    	max-height: 200px;
-    	text-align: center;
-    	border:0.5px;
+    	max-width: 197px;
+    	max-height: 197px;
+		border:3px solid #FFF;
     	border-radius: 5px;
     }
+	.img-thumbnail{
+    	
+	}
+
+	.navbar{
+	  height:70px;
+	  background-color:#424242;
+	  border:0.2px;
+	  color:#fff;
+	  border-radius:5px;
+	  margin-bottom:20px;
+	  padding:10px;
+	  text-align:center;
+	}

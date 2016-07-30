@@ -18,9 +18,17 @@ function sair() {
     firebase.auth().signOut().then(function() {
         // Sign-out successful.
         console.log('Usuario deslogado com sucesso.');
+		sessionStorage.setItem('email', '');
+        sessionStorage.setItem('senha', '');
+        sessionStorage.setItem('uid','');
+		window.location.replace('/index.html');
+           
     }, function(error) {
         // An error happened.
         console.log('Erro ao tentar deslogar: '+error);
         
     });
 }
+
+
+

@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+    <script src="libs/firebase.js"></script>
 </head>
 
 <body>
     <div class="container">
         <div class="form-login">
             <div class="fieldset">
-                <label class="text-center block">Criar Conta</label>
+                <label class="text-center block">Autenticação</label>
                 <div><span class="block  alert" id="alerta"></span></div>
                 <div>
                     <label class="label block">E-MAIL</label>
-                    <input type="text" id="email" class="input block text-center" placeholder="mail@mail.com.br" />
+                    <input type="text" id="email" class="input block text-center" placeholder="mail@mail.com.br" autofocus/>
                 </div>
                 <div>
                     <label class="label block ">SENHA</label>
                     <input type="password" id="senha" class="input block text-center" placeholder="*** *** ***" />
                 </div>
                 <div class="btn-login">
-                    <button onclick="criarConta()" class="btn block">Criar Conta</button>
+                    <button onclick="criarConta()" class="btn btn-info block">Criar Conta</button>
                 </div>
-                <label  class="text-center block">OU</label>
+                <label  class="text-center block">Ou</label>
                 <div class="btn-login">
-                    <button onclick="fazerLogin()" class="btn block">Loguin</button>
+                    <button onclick="fazerLogin()" class="btn btn-primary block">Login</button>
                 </div>
             </div>
         </div>

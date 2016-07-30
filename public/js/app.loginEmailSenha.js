@@ -1,3 +1,9 @@
+ if (sessionStorage.getItem('uid') != null || sessionStorage.getItem('uid') != '') {
+     email.value = sessionStorage.getItem('email');
+	 senha.value = sessionStorage.getItem('senha');
+	 login(sessionStorage.getItem('email'), sessionStorage.getItem('senha'));
+ }
+
 function fazerLogin() {
     login(email.value, senha.value);
     
