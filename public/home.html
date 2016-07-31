@@ -3,14 +3,14 @@
 
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script src="libs/firebase.js"></script>
   </head>
 
   <body>
 	<div class="container">
-	<nav class="navbar">
+	<nav class="navbar fixed-top">
 	  <div class="text-right">
 		<p id="nome"></p>
 	  </div>
@@ -22,15 +22,15 @@
 		<div class="img-thumbnail text-center">
 		  <img class="img" src="" id="fotoDoPerfil" alt="imagem de perfil">
 		</div>
-		
-		<button class="btn btn-danger" onclick="deletarFotoDoPerfil()">Deletar Foto Do Perfil</button>
-
+		<div class="text-center">
+		<button class="btn btn-danger block" onclick="deletarFotoDoPerfil()">Deletar Foto Do Perfil</button>
+		</div>
 		<p>Email: <span id="email"></span></p>
 		<p>Telefone: <span id="telefone"></span></p>
 		<p>Celular: <span id="celular"></span></p>
 		
-		<button class="btn" onclick="atualizarDadosDeUsuario()">Atualizar dados</button>
-		<button class="btn" onclick="sair()">Sair</button>
+		<button class="btn block btn-info" onclick="atualizarDadosDeUsuario()">Atualizar dados</button>
+		<button class="btn block btn-danger btn-login" onclick="sair()">Sair</button>
 		
 	  </div>
 	</div>

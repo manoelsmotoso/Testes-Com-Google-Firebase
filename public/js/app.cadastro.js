@@ -7,7 +7,8 @@ if (firebase.auth().currentUser == null) {
 } else {
     getDadosDeUsuario(firebase.auth().currentUser);
 }
-
+nome.addEventListener('keyup',function (){navbarTitle.innerHTML=nome.value;},false);
+file.addEventListener('change', function (e) {fazerUploadDeFoto(sessionStorage.getItem('uid'), e.target.files[0]);}, false);
 
 function login(emailAuth, senhaAuth) {
     firebase.auth().signInWithEmailAndPassword(emailAuth, senhaAuth)
@@ -21,9 +22,7 @@ function login(emailAuth, senhaAuth) {
             imgGravada.src = result.photoURL;
             sessionStorage.setItem('isAutenticado', true);
             getDadosDeUsuario(result);
-
-        })
-        .catch(function(error) {
+        }).catch(function(error) {
             // Handle Errors here.
             alerta.innerHTML = error.message;
             console.log("Flaha no login! Codigo:", error.code);
@@ -36,6 +35,7 @@ function login(emailAuth, senhaAuth) {
 function getDadosDeUsuario(user) {
     if (user != null) {
         nome.value = user.displayName;
+		navbarTitle.innerHTML = user.displayName;
         email.value = user.email;
         imgGravada.src = user.photoURL;
         firebase.database().ref('/usuarios/' + user.uid).once('value').then(function(snapshot) {
@@ -48,9 +48,7 @@ function getDadosDeUsuario(user) {
 }
 
 function atualizarDadosDeUsuario() {
-    var user = firebase.auth().currentUser;
-
-    user.updateProfile({
+    firebase.auth().currentUser.updateProfile({
         displayName: nome.value,
         photoURL: imgGravada.src
     }).then(function() {
@@ -64,14 +62,7 @@ function atualizarDadosDeUsuario() {
     });
 }
 
-
-
 //--------------------------------------------------------------------//
-file.addEventListener('change', setFotoParaUpload, false);
-
-function setFotoParaUpload(e) {
-    fazerUploadDeFoto(sessionStorage.getItem('uid'), e.target.files[0]);
-}
 
 function concluirCadastro() {
     firebase.database().ref('usuarios/' + sessionStorage.getItem('uid')).update({
@@ -92,8 +83,7 @@ function gravarUrlDaFoto(uid, downloadURL) {
     var updates = {};
     updates['/usuarios/' + uid + '/foto'] = downloadURL;
 
-    return firebase.database().ref().update(updates)
-        .then(function(result) {
+    return firebase.database().ref().update(updates).then(function(result) {
             alerta.innerHTML = 'Upload de imagem concluida';
             console.log('Url de foto do usuario foi gravada com sucesso: ' + JSON.stringify(result));
             imgGravada.src = downloadURL;
@@ -101,3 +91,4 @@ function gravarUrlDaFoto(uid, downloadURL) {
 
         });
 }
+
