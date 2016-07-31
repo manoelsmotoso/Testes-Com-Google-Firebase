@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/progress-bar.css">
     <script src="libs/firebase.js"></script>
     
   </head>
@@ -34,9 +35,16 @@
 			<label class="label">Foto Do Perfil:</label>
 			<input class="input-file block" type="file" id="file">
 		  </div>
-		  <div>
-			<progress class="block" id="progress" value="" max="100"></progress>
+	
+		  <div class="demo-wrapper html5-progress-bar">
+			<div class="progress-bar-wrapper">
+			  <progress id="progress" value="0" max="100"></progress>
+			  <span id="progressInfo" class="progress-value">0%</span>
+			</div>
 		  </div>
+		
+		  
+		  
 		  <div class="text-center">
 			<img class="img" src="" id="imgGravada">
 		  </div>

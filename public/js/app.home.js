@@ -11,7 +11,7 @@
  function login(email, senha) {
      firebase.auth().signInWithEmailAndPassword(email, senha)
          .then(function(result) {
-             alerta.innerHTML = result.uid;
+             alerta.innerHTML = "Dados recuperados com sucesso";
              console.log("Usuario Logado com sucesso. Uid =  ", result.uid);
              sessionStorage.setItem('email', email);
              sessionStorage.setItem('senha', senha);
@@ -33,6 +33,12 @@
          nome.innerHTML = user.displayName;
          email.innerHTML = user.email;
          fotoDoPerfil.src = user.photoURL;
+		 firebase.database().ref('/usuarios/' + user.uid).once('value')
+		 .then(function(snapshot) {
+            console.log(snapshot.val());
+            celular.innerHTML = snapshot.val().celular;
+            telefone.innerHTML = snapshot.val().telefone;
+       });
      }
  }
 

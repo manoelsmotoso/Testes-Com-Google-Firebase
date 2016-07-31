@@ -18,7 +18,7 @@ function fazerUploadDeFoto(uid, foto) {
             var progressUpload = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             console.log('Progresso de envio do arquivo - ' + foto.name + ' ' + progressUpload + '% ');
 
-            progressInfo.innerHTML = progressUpload;
+            progressInfo.innerHTML = Math.round(progressUpload)+"%";
             progress.value = progressUpload;
 
             switch (snapshot.state) {

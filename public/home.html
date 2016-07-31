@@ -9,25 +9,28 @@
   </head>
 
   <body>
+	<div class="container">
 	<nav class="navbar">
 	  <div class="text-right">
 		<p id="nome"></p>
 	  </div>
 	</nav>
-    <div class="container">
+    
 	  <div class="fieldset col-md-6">
-		<p id="alerta"></p>
+		<div class="alert block" id="alerta"></div>
 		
-		<div class="text-left img-tumbnail">
-		  <img class="img" src="../firebase.png" id="fotoDoPerfil" alt="imagem de perfil">
+		<div class="img-thumbnail text-center">
+		  <img class="img" src="" id="fotoDoPerfil" alt="imagem de perfil">
 		</div>
 		
-		<button class="btn-danger" onclick="deletarFotoDoPerfil()">Deletar Foto Do Perfil</button>
+		<button class="btn btn-danger" onclick="deletarFotoDoPerfil()">Deletar Foto Do Perfil</button>
 
-		<p>Email: <div class="" id="email"></div></p>
-
-		<button onclick="atualizarDadosDeUsuario()">Atualizar dados</button>
-		<button class="" onclick="sair()">Sair</button>
+		<p>Email: <span id="email"></span></p>
+		<p>Telefone: <span id="telefone"></span></p>
+		<p>Celular: <span id="celular"></span></p>
+		
+		<button class="btn" onclick="atualizarDadosDeUsuario()">Atualizar dados</button>
+		<button class="btn" onclick="sair()">Sair</button>
 		
 	  </div>
 	</div>
