@@ -1,12 +1,13 @@
-if (sessionStorage.getItem('uid') == null || sessionStorage.getItem('uid') == '') {
+if(!sessionStorage.getItem('uid')){
     window.location.replace('/index.html');
 }
 
-if (firebase.auth().currentUser == null) {
+if (!firebase.auth().currentUser) {
     login(sessionStorage.getItem('email'), sessionStorage.getItem('senha'));
 } else {
     getDadosDeUsuario(firebase.auth().currentUser);
 }
+
 nome.addEventListener('keyup',function (){navbarTitle.innerHTML=nome.value;},false);
 file.addEventListener('change', function (e) {fazerUploadDeFoto(sessionStorage.getItem('uid'), e.target.files[0]);}, false);
 
@@ -17,6 +18,7 @@ function login(emailAuth, senhaAuth) {
             sessionStorage.setItem('email', emailAuth);
             sessionStorage.setItem('senha', senhaAuth);
             sessionStorage.setItem('uid', result.uid);
+
             email.value = result.email;
             nome.value = result.displayName;
             imgGravada.src = result.photoURL;
@@ -33,7 +35,7 @@ function login(emailAuth, senhaAuth) {
 }
 
 function getDadosDeUsuario(user) {
-    if (user != null) {
+    if (user) {
         nome.value = user.displayName;
 		navbarTitle.innerHTML = user.displayName;
         email.value = user.email;

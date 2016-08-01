@@ -1,8 +1,8 @@
- if (sessionStorage.getItem('uid') == null || sessionStorage.getItem('uid') == '') {
+ if (!sessionStorage.getItem('uid')) {
      window.location.replace('/index.html');
  }
 
- if (firebase.auth().currentUser == null) {
+ if (!firebase.auth().currentUser) {
      login(sessionStorage.getItem('email'), sessionStorage.getItem('senha'));
  }else{
  	 getDadosDeUsuario(firebase.auth().currentUser);
@@ -20,15 +20,14 @@
          })
          .catch(function(error) {
              // Handle Errors here.
-             alerta.innerHTML = error.message;
-             console.log("Flaha no login! Codigo:", error.code);
+             alerta.innerHTML = "Ocorreu uma falha ao tentar fazer login";
              console.log("Detalhes: ", error.message);
              // ...
          });
  }
 
- function getDadosDeUsuario(user) {
-     if (user != null) {
+function getDadosDeUsuario(user) {
+     if (user) {
          console.log(user);
          nome.innerHTML = user.displayName;
          email.innerHTML = user.email;
@@ -42,9 +41,6 @@
      }
  }
 
- function atualizarDadosDeUsuario() {
-     window.location.replace('/cadastro.html');
- }
 
 function deletarFotoDoPerfil() {
     // Create a reference to the file to delete
@@ -60,3 +56,7 @@ function deletarFotoDoPerfil() {
 
     });
 }
+
+function atualizarDadosDeUsuario() {
+     window.location.replace('/cadastro.html');
+ }

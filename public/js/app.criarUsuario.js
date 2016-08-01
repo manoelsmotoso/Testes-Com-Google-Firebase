@@ -1,7 +1,7 @@
 function criarConta() {
     firebase.auth().createUserWithEmailAndPassword(email.value, senha.value)
         .then(function(result) {
-            alerta.innerHTML = 'Usuario criado com sucesso';
+            alerta.innerHTML = 'Conta criada  com sucesso';
             console.log('Usuario criado com sucesso. Uid =  ', result.uid);
             sessionStorage.setItem('email', email.value);
             sessionStorage.setItem('senha', senha.value);
@@ -9,7 +9,7 @@ function criarConta() {
             gravarUsuario(result.uid, email.value, senha.value);
         })
         .catch(function(error) {
-            alerta.innerHTML = error.message;
+            alerta.innerHTML = "Erro inesperado ao criar sua conta.";
             console.log('Falha ao criar usuario: ', error.message);
             // ...
         });
@@ -20,7 +20,7 @@ function gravarUsuario(uid, email, senha) {
         email: email,
         hashSenha: md5(senha)
     }).then(function(result) {
-        alerta.innerHTML = 'Pre cadastro concluido clique em proceguir para concluir';
+        alerta.innerHTML = 'Pre cadastro concluido redirecionando para home page';
         console.log('Pre cadastro concluido.');
         window.location.replace("/cadastro.html");
 
